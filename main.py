@@ -13,7 +13,7 @@ from engine import Optimization
 
 def get_args_parse():
     parser = argparse.ArgumentParser("Set model", add_help = False)
-    parser.add_argument('--lr_start', default = 2e-4, type = float)
+    parser.add_argument('--lr_start', default = 1e-3, type = float)
     parser.add_argument('--lr_base', default = 0.98, type = float)
     parser.add_argument('--lr_end', default = 1e-5, type = float)
     parser.add_argument('--weight_decay', default=0.001, type = float)
@@ -21,7 +21,7 @@ def get_args_parse():
     parser.add_argument('--n_epochs', default =100, type=int)
     parser.add_argument('--input_dim', default = 13, type = int)
     parser.add_argument('--hidden_dim', default =32, type = int)
-    parser.add_argument('--layer_dim', default = 5, type = int)
+    parser.add_argument('--layer_dim', default = 1, type = int)
     parser.add_argument('--output_dim', default = 2, type = int)
     parser.add_argument('--dropout_prob', default = 0., type = float)
     parser.add_argument('--device', default = 'cpu', type = str)
@@ -30,7 +30,7 @@ def get_args_parse():
     parser.add_argument('--data_path', default = '../data/train.csv', type = str)
     parser.add_argument('--val_path', default = '../data/', type = str)
     parser.add_argument('--random_seed', default = 44, type = int)
-    parser.add_argument('--model_name', default='lstm', type = str)
+    parser.add_argument('--model_name', default='dnn', type = str)
 
     return parser
 
@@ -54,12 +54,12 @@ def main(args):
     print("Feature bacth shape:", train_x.size())
     print("Labels batch shape:", train_y.size())
     print("Total number of sequence for training:", len(train_dataloader))
-    print("Total number of sequence for validation", len(val_dataloader))
+    print("Total number of sequence for validation:", len(val_dataloader))
 
     # build model
     model = build_model(args)
     total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    print("Total number of training paramters", total_params)
+    print(f"{args.model_name} - total number of training paramters:", total_params)
 
     # build optimization
     weight = torch.tensor([1.0, 1.0]).to(args.device)

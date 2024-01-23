@@ -1,5 +1,32 @@
 import torch 
 import torch.nn as nn
+import sys
+
+class DNN(nn.ModuleDict):
+    def __init__(self, input_dim, hidden_dim, layer_dim, output_dim, dropout_prob):
+        super(DNN, self).__init__()
+
+        self.layer_dim = layer_dim
+
+        self.linear = nn.Linear(input_dim, hidden_dim)
+        self.linear_ = nn.Linear(60, 1)
+        self.fc = nn.Linear(hidden_dim, output_dim)
+        self.activation = nn.Sigmoid()
+        self.logsoftmax = nn.LogSoftmax(dim = 1)
+
+    def forward(self, x):
+        for _ in range(self.layer_dim):
+            x = self.activation(self.linear(x))
+
+        #print(x.shape)
+        out = torch.transpose(x, 1, 2)
+        out = self.linear_(out)
+        out = torch.transpose(out, 1 ,2)
+        out = self.fc(out)
+        out = torch.reshape(out, (-1, 2))
+        out = self.logsoftmax(out)
+        # print(out.shape)
+        return out
 
 class LSTMModel(nn.Module):
     def __init__(self, input_dim, hidden_dim, layer_dim, output_dim, dropout_prob):
@@ -22,14 +49,15 @@ class LSTMModel(nn.Module):
         out, (hn, cn) = self.lstm(x, (h0.detach(), c0.detach()))
         out = self.fc(out[:,-1,:])
         out1 = self.logsoftmax(out)
-        #print('out',out1)
-        #print(out1)
+        # print(out1.shape)
+        # sys.exit()
 
         return out1
         
 def get_model(model, model_params):
     models = {
-        'lstm':LSTMModel
+        'lstm':LSTMModel,
+        "dnn": DNN
     }
 
     return models.get(model.lower())(**model_params)
