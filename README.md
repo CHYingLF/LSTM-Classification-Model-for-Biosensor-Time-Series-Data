@@ -25,14 +25,14 @@ Transformer model has populated to every ML region since it has been proven to b
 
 
 # Environemnt
-python 3.8
-Pytorh 2.1.2
-cuda 11.1
-numpy 1.24.3
-pandas 2.0.3
-scikit-learn 1.3.2
-matplotlib 3.7.2
-seaborn 0.12.2
+python 3.8\
+Pytorh 2.1.2\
+cuda 11.1\
+numpy 1.24.3\
+pandas 2.0.3\
+scikit-learn 1.3.2\
+matplotlib 3.7.2\
+seaborn 0.12.2\
 tqdm 4.65.0
 
 # GPU Setup Guide
