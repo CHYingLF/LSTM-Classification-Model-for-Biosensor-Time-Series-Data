@@ -20,8 +20,9 @@ tqdm 4.65.0
 
 # Training
 ## Parameters description
-Parameters | Explanation | Suggested Values|
-lr_start   | start learning rate | 1e-5    |
+| Parameters | Explanation | Suggested Values|
+| :---:      | :---:       | :---:           |
+| lr_start   | start learning rate | 1e-5    |
 
 
 # Evaluation
