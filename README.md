@@ -19,7 +19,8 @@ seaborn 0.12.2
 tqdm 4.65.0
 
 # Training
-1. Change the the parameters configuration based on your problems in the main.py, or use a yaml file description
+Steps:
+1. Change the the parameters configuration based on your problems in the '''main.py''', or use a yaml file description
 
 Followng table summariezd the parameters that may need to adjusted, note each problem can be different, but it is always a good option to start with the default value except for the model input and out dimension, which should be changed to specific problem.
 
