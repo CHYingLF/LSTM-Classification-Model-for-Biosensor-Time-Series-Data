@@ -1,11 +1,12 @@
 # Descriptiom
-A implementation of RNN/GRU/LSTM/TRansformer model for sequencce data classification (or regression), especially time series data with local GPU.
+A hands-on implementation of RNN/GRU/LSTM/TRansformer model for sequencce data classification (or regression), especially time series data with local GPU.
 
-Features*:
+*Features for this Repo*: 
+
 0. Ideally can be used for any sequence input with any number of features.
-1. Aiming to solve varies length input of time series data, capture local and global information using LSTM model.
-2. Also implement attention mechanism to assign attention score on the last hidden layer output of LSTM flow
-3. If local GPU is available for ML traning, can follow the steps to setup the GPU for local traning. Own you own ML GPU, forget about paying Online GPU to train.
+1. Aiming to solve varies length input of time series data, capture local and global information using LSTM/Transformer model.
+2. Also implement attention mechanism to assign attention score on the last hidden layer output of LSTM flow.
+3. If local GPU is available for ML traning, can follow the steps to setup the GPU for local traning. Own your ML GPU, forget about paying online GPU to train.
 4. The final R2 score is 0.88 on the validation dataset of biological sensors' data.
 
 # Environemnt
@@ -21,12 +22,10 @@ tqdm 4.65.0
 
 # GPU Setup Guide
 1. First we need find out if your local computer has a Nvidia GPU that can be used for ML traning and Download the appropriate driver. (1) Search 'Device Manager', under 'Display Adapter', we can see the available GPU. (2) Check your if GPU name is listed on Nvidia ML-enabled GPU website (3) Or directly go to GPU driver download page to see if there is an available driver for your GPU: https://www.nvidia.com/Download/index.aspx
-
-2. Install Anaconda： download anoconda/miniconda if not so: https://www.anaconda.com/
-   
+2. Install Anaconda. Download anoconda/miniconda if not so: https://www.anaconda.com/
 3. Create new conda environment for gpu training. 'Search and open anaconda prompt', in the terminal, type  ```conda create -n py38_gpu python=3.8```
 4. Install gpu enabled PyTorch. Visit https://pytorch.org/, select you OS and and CUDA version. Be sure to check the cuda version suited for you GPU.
-5. Install Cuda. https://developer.nvidia.com/cuda-11-7-0-download-archive.
+5. Install Cuda. https://developer.nvidia.com/cuda-11-7-0-download-archive. Be sure to check the proper CUDA version for your GPU name
 6. Verify CUDA with the pytorch: Open python file and run following
 ```
 import torch
@@ -37,7 +36,7 @@ if 'True' is printed, then congraduration, you have you own ML GPU. If not, do c
 7. User Visual Studio Code to run this code repo. After everything is ready, open Visual studio code, and opent the downloaded code repo dir, change 'device' to 'gpu', select the gpu conda environment by clicking the right bottom python version. Or go to top panel Terminal/New terminal/, and then type "Conda activate Py38_gpu", here you can also run the code with "Python main.py"
 
 # Training
-Steps:
+*Steps*:
 1. Change the the parameters configuration based on your problems in the ```main.py```, or use a yaml file description
 
 Following table summarizes the parameters that may need to be adjusted. Please note each problem can be different, but it is always a good option to start with the default value except for the model input and out dimension, which should be changed to specific problem. After you have a good sence of the training, you can start tunning the parameters to achieve the best performace.
