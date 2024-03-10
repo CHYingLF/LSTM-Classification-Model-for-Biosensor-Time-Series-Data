@@ -19,7 +19,9 @@ seaborn 0.12.2
 tqdm 4.65.0
 
 # Training
-## Parameters
+## Parameters description
+Parameters | Explanation | Suggested Values|
+lr_start   | start learning rate | 1e-5    |
 
 
 # Evaluation
