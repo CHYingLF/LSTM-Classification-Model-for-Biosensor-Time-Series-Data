@@ -1,13 +1,25 @@
 # Descriptiom
 A hands-on implementation of RNN/GRU/LSTM/TRansformer model for sequencce data classification (or regression), especially time series data with local GPU.
 
-*Features for this Repo*: 
+**Model**
+Recurrent Neural Network (RNN) has been used a lot for sequence input data, expecially natural language processing, because it can keep the information along the sequence for final output. Later, gate neural network (GNN), long-short-term-memory (LSTM) have been published to improve the RNN structure. They include somes gates to intentially keep the important long range information and forget some unimportant ones. Long Short-Term Memory (LSTM) is a specialized type of recurrent neural network (RNN) architecture designed to model sequential data and capture long-range dependencies effectively. Unlike traditional RNNs, LSTM networks are equipped with memory cells and gating mechanisms, which enable them to retain information over long periods and selectively update or forget information as needed. This ability makes LSTM particularly well-suited for tasks such as natural language processing, time series prediction, and speech recognition, where understanding context and capturing temporal dependencies are crucial. By incorporating gates to regulate the flow of information, including input, output, and forget gates, LSTM models can effectively mitigate the vanishing gradient problem encountered in traditional RNNs, allowing for more stable and efficient training. Additionally, LSTM architectures can be extended with variations such as bidirectional LSTMs, stacked LSTMs, and attention mechanisms, further enhancing their capacity to learn complex patterns from sequential data. Overall, LSTM models have emerged as a powerful tool in the realm of deep learning, offering state-of-the-art performance across a wide range of sequential data analysis tasks. The LSTM cell illustrates the information flow for x input:
+ 
+Where x_t: input feature at time t, h_t: hidden state, c_t  : cell state, f_t : forget gate, i_t : input gate, o_t: output gate, σ : activation function, W: weight matrix. In our model, the activation function is sigmoid function. And we used a stack LSTM model structure, where 5 layers of LSTM cells are stacked together, and the hidden state size is 32.
+Gates are critical components responsible for controlling the flow of information within the network and regulating the interaction between different parts of the memory cell. These gates include the input gate, forget gate, and output gate, each serving a specific purpose in managing the information flow through the network.
+Input Gate (i_t): The input gate determines how much new information will be stored in the cell state at the current time step. It takes input from the current input data (x_t) and the previous hidden state (h_t). Through a sigmoid activation function, the input gate decides which values from the input should be updated and added to the cell state.
+Forget Gate (f_t): The forget gate controls the extent to which the previous cell state (c_(t-1)) should be retained or forgotten. It considers the input data (x_t) and the previous hidden state (h_(t-1)) and, through a sigmoid activation function, determines which information from the previous cell state should be discarded.
+Output Gate (o_t): The output gate regulates how much information from the current cell state (c_t) should be exposed to the network's output at the current time step. It considers the current input data (x_t) and the previous hidden state (h_(t-1)), along with the updated cell state (c_t), and passes this information through a sigmoid activation function to determine the output activation.
+
+Transformer model has populated to every ML region since it has been proven to be so powerful in natual language processing, especially after ChatGPT has published in 2022. Compare to LSTM, the implementation of Transformer is not easy as it requires siginificantly more data to train. Despite this, the attention mechanism in transformer model is so promising to assign weights to each sequence. Here, we combine the LSTM model output with attention block, where the final hidden output is properly processed to give a good results.
+
+**Features for this Repo**
 
 0. Ideally can be used for any sequence input with any number of features.
 1. Aiming to solve varies length input of time series data, capture local and global information using LSTM/Transformer model.
 2. Also implement attention mechanism to assign attention score on the last hidden layer output of LSTM flow.
 3. If local GPU is available for ML traning, can follow the steps to setup the GPU for local traning. Own your ML GPU, forget about paying online GPU to train.
 4. The final R2 score is 0.88 on the validation dataset of biological sensors' data.
+
 
 # Environemnt
 python 3.8
