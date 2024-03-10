@@ -15,7 +15,7 @@ Output Gate (o_t): The output gate regulates how much information from the curre
 
 Transformer model has populated to every ML region since it has been proven to be so powerful in natual language processing, especially after ChatGPT has published in 2022. Compare to LSTM, the implementation of Transformer is not easy as it requires siginificantly more data to train. Despite this, the attention mechanism in transformer model is so promising to assign weights to each sequence. Here, we combine the LSTM model output with attention block, where the final hidden output is properly processed to give a good results.
 
-**Features for this Repo**
+**Highlights for this Repo**
 
 0. Ideally can be used for any sequence input with any number of features.
 1. Aiming to solve varies length input of time series data, capture local and global information using LSTM/Transformer model.
