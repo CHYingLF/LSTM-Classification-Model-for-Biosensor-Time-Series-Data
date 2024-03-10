@@ -78,7 +78,7 @@ Following table summarizes the parameters that may need to be adjusted. Please n
 |model_name|choose the model you want to use, options are: 'lstm', 'rnn', 'dnn', 'gru', 'lstm_transformer'|'lstm'|
 
 
-2. Once you have the parameters setting adjusted to your problem, and specify necessary values like data_path, val_path, input and out dimension. You can start training by typing ```python train.py```.
+2. Once you have the parameters setting adjusted to your problem, and specify necessary values like data_path, val_path, input and out dimension. You can start training by typing ```python main.py```.
 
 # Evaluation
 
