@@ -28,10 +28,10 @@ tqdm 4.65.0
 4. Install gpu enabled PyTorch. Visit https://pytorch.org/, select you OS and and CUDA version. Be sure to check the cuda version suited for you GPU.
 5. Install Cuda. https://developer.nvidia.com/cuda-11-7-0-download-archive.
 6. Verify CUDA with the pytorch: Open python file and run following
-   ```
+```
 import torch
 print(torch.cuda.is_available())
-   ```
+```
 if 'True' is printed, then congraduration, you have you own ML GPU. If not, do check previous steps, especially if you gpu name, driver version, pytorch version, CUDA version are properly compatible.
 
 7. User Visual Studio Code to run this code repo. After everything is ready, open Visual studio code, and opent the downloaded code repo dir, change 'device' to 'gpu', select the gpu conda environment by clicking the right bottom python version. Or go to top panel Terminal/New terminal/, and then type "Conda activate Py38_gpu", here you can also run the code with "Python main.py"
