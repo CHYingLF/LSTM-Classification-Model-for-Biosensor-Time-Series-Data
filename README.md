@@ -9,7 +9,7 @@ Where x_t: input feature at time t, h_t: hidden state, c_t  : cell state, f_t : 
 
 Gates are critical components responsible for controlling the flow of information within the network and regulating the interaction between different parts of the memory cell. These gates include the input gate, forget gate, and output gate, each serving a specific purpose in managing the information flow through the network.
 
-Input Gate (i_t): The input gate determines how much new information will be stored in the cell state at the current time step. It takes input from the current input data (x_t) and the previous hidden state (h_t). Through a sigmoid activation function, the input gate decides which values from the input should be updated and added to the cell state.
+Input Gate ($i_t$): The input gate determines how much new information will be stored in the cell state at the current time step. It takes input from the current input data (x_t) and the previous hidden state (h_t). Through a sigmoid activation function, the input gate decides which values from the input should be updated and added to the cell state.
 
 Forget Gate (f_t): The forget gate controls the extent to which the previous cell state (c_(t-1)) should be retained or forgotten. It considers the input data (x_t) and the previous hidden state (h_(t-1)) and, through a sigmoid activation function, determines which information from the previous cell state should be discarded.
 
