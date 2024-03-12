@@ -83,5 +83,4 @@ Following table summarizes the parameters that may need to be adjusted. Please n
 2. Once you have the parameters setting adjusted to your problem, and specify necessary values like data_path, val_path, input and out dimension. You can start training by typing ```python main.py```.
 
 # Evaluation
-
 After training, you will see the model weight file ('.pth') in ```./outdir```, excute the evaluation code by ```python eval.py```
