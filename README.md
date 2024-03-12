@@ -1,4 +1,4 @@
-# Descriptiom
+# Description
 A hands-on implementation of RNN/GRU/LSTM/TRansformer model for sequencce data classification (or regression), especially time series data with local GPU.
 
 **Model**
